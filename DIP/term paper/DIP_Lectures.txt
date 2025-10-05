@@ -1,0 +1,8710 @@
+CSE 427
+
+Digital Image Processing
+
+1
+
+Reference Book
+
+ Digital Image Processing (3rd Edition)
+
+Gonzalez and Woods
+
+2
+
+Goals
+
+ To tell you what you can do with digital
+
+images
+
+ To show you that doing research in image
+
+processing is fun and exciting
+
+ To demonstrate that image processing is based
+on strong mathematical principles, applied to
+digital images via numerical schemes
+
+ To show you that you can solve typical image
+
+processing tasks on your own
+
+3
+
+Image
+
+4
+
+Image
+
+ A visual representation of something
+
+5
+
+Digital Image
+
+6
+
+Digital Image
+
+ A visual representation of something captured
+
+by a digital medium
+
+7
+
+Digital Medium / Image Sensors
+
+8
+
+What is a Digital Image?
+
+A digital image is a representation of a two-
+image as a finite set of digital
+dimensional
+values, called picture elements or pixels.
+
+9
+
+What is a Digital Image?
+
+ Pixel values typically represent gray levels,
+
+colors.
+
+ Digital image is an approximation of a real
+
+scene.
+
+10
+
+What is a Digital Image?
+
+Common image formats include:
+
+ 1 sample per point (B&W or Grayscale)
+
+ 3 samples per point (Red, Green, and Blue)
+
+ 4 samples per point (Red, Green, Blue, and
+
+“Alpha”).
+
+Alpha is for transparency (0.0 fully transparent
+and 1.0 full opaque (not Transparent)).
+
+11
+
+What is a Digital Image?
+
+ A fixed number of rows and columns of
+
+pixels.
+
+ The smallest individual element in an image
+
+is pixel.
+
+ In digital imaging a pixel, pel, or picture
+
+element is a physical point in a image.
+
+12
+
+What is a Digital Image?
+
+ Each pixel
+image.
+
+is a sample of an original
+
+ More samples
+
+typically provide more
+
+accurate representations of the original.
+
+ The intensity of each pixel is variable.
+
+13
+
+What is a Digital Image?
+
+is
+four
+
+ In color
+
+imaging systems, a color
+
+typically represented by three or
+component intensities such as
+
+For 3 colors:
+red, green, and blue, or
+
+For 4 colors:
+cyan, magenta, yellow, and black.
+
+14
+
+What is a Digital Image?
+
+Depending on context, synonyms of pixel as
+follows:
+ pel,
+ sample,
+ byte,
+ bit,
+ dot, and
+ spot.
+Pixels can be used as a unit of measure such as:
+2400 pixels per inch, 640 pixels per line, or
+spaced 10 pixels apart.
+
+15
+
+What is a Digital Image?
+
+ dots per inch (dpi) and
+ pixels per inch (ppi)
+
+For printer devices, dpi is a measure of the
+ink droplet)
+printer's density of dot
+placement.
+
+(e.g.
+
+A high-quality photographic image may be
+printed with 600 ppi on a 1200 dpi inkjet
+printer.
+
+16
+
+What is a Digital Image?
+
+Bits Per Pixel (bpp)
+
+The number of distinct colors that can be
+represented by a pixel depends on the number
+of bits per pixel (bpp).
+
+A 1 bpp image uses 1-bit for each pixel, so
+each pixel can be either on or off. Each
+additional bit doubles the number of colors
+available, so a 2 bpp image can have 4 colors,
+and a 3 bpp image can have 8 colors.
+
+17
+
+What is an Image/Digital Image?
+
+1 bpp, 21 = 2 colors (monochrome)
+2 bpp, 22 = 4 colors
+3 bpp, 23 = 8 colors
+
+…
+…
+…
+
+8 bpp, 28 = 256 colors
+16 bpp, 216 = 65,536 colors ("Highcolor" )
+24 bpp, 224 = 16,777,216 colors ("Truecolor")
+
+18
+
+What is an Image/Digital Image?
+
+2x -> Here x means color depths per pixel.
+
+the bits
+Depth is normally the sum of
+allocated to each of the red, green, and blue
+components.
+
+215
+-> Means 5 red, 5 green and 5 blue
+(divide by 3 channels and always red and
+blue are equal).
+
+16 bpp means ???
+
+19
+
+What is an Image/Digital Image?
+
+Highcolor: usually meaning 16 bpp,
+normally has
+
+a) Five bits for red and blue each, and
+b) Six bits for green,
+
+As the human eye is more sensitive to
+two
+errors in green than in the other
+primary colors.
+
+20
+
+What is an Image/Digital Image?
+
+For applications involving transparency, the 16
+bits may be divided into five bits each of red,
+for
+and blue, with one bit
+green,
+transparency.
+
+left
+
+A 24-bit depth allows 8 bits per component.
+
+On some systems, 32-bit depth is available: this
+means that each 24-bit pixel has an extra 8 bits
+to describe its opacity (for purposes of
+combining with another image).
+
+21
+
+What is an Image/Digital Image?
+
+A megapixel (MP) is a million pixels.
+
+The term is used not only for the number
+of pixels in an image but also
+
+ To express the number of image sensor
+
+elements of digital cameras or
+
+ The number of display elements of
+
+digital displays.
+
+22
+
+What is an Image/Digital Image?
+
+In most digital cameras, the sensor array is
+covered with a patterned color
+filter
+having
+
+ Red,
+
+ Green, and
+
+ Blue regions
+
+23
+
+What is an Image/Digital Image?
+
+image processing focuses on two
+
+Digital
+major tasks
+
+ Improvement of pictorial information for
+
+human interpretation
+
+ Processing of
+transmission
+autonomous machine perception.
+
+image data for
+and
+
+representation
+
+storage,
+for
+
+24
+
+What is an Image/Digital Image?
+
+ What is the input for image processing or
+
+image analysis ???
+
+ What is the output of image processing or
+
+image analysis???
+
+25
+
+Arithmetic Operations
+
+ Arithmetic operations on pixel values 
+
+Addition, subtraction, multiply, divide 
+
+Arithmetic operations: f + g
+
+ Averaging (adding) multiple images can reduce 
+
+noise 
+
+Arithmetic operations: f - g
+
+ Digital Subtractive Angiography (DSA) 
+
+Arithmetic operations: f - g
+
+ Image Subtraction (Motion Detection)
+
+Arithmetic operations: f  x g
+
+Arithmetic operations: f / g
+
+Key Stages in DIP
+
+Key Stages in DIP
+
+Key Stages in DIP
+
+Key Stages in DIP
+
+Key Stages in DIP
+
+Key Stages in DIP
+
+Key Stages in DIP
+
+Key Stages in DIP
+
+Key Stages in DIP
+
+Key Stages in DIP
+
+Digital Image Processing
+
+ Processing of digital images using digital devices
+
+(computers)
+
+DIP
+
+Scope of DIP
+
+ Is it DIP?
+
+Find avg. 
+gray value
+
+0.67
+
+Why we need DIP
+
+ DIP is not limited to image retrieval (IR)
+
+ Thousands of others areas:
+
+• Core area
+
+• Application area
+
+Why we need DIP
+
+ Core area
+
+•
+
+•
+
+•
+
+•
+
+•
+
+•
+
+Image enhancement
+
+Image de-noising
+
+Image segmentation
+
+Image & video retrieval
+
+Image Security
+
+o Watermarking and registration
+Image compression
+
+Why we need DIP
+
+ Application area
+
+• Security and surveillance
+
+o Biometric application: face, iris, finger print,
+
+palm print recognition . .
+
+• Medical imaging
+
+ Automatic scanning and detection: X-ray,
+
+CT, MRI, PET, angiogram, ECG, echo,
+
+endoscopy, ….
+
+Why we need DIP
+
+ Application area
+
+• Document Classification
+
+ Binarization,
+
+segmentation,
+
+character
+
+recognition
+
+• Object and shape recognition
+
+•
+
+Intelligent transport system
+
+• Environmental monitoring and remote sensing
+
+•
+
+and so on, . . .
+
+Digital Image …
+
+An image can be defined as
+ a two-dimensional function, f(x,y),
+
+where
+
+a) x and y are spatial (plane) coordinates
+f
+b)
+coordinates (x,y)
+
+amplitude of
+
+any pair of
+
+at
+
+is called the intensity of the image at that point.
+
+Digital Image 
+
+The term gray level is often used to refer to the
+intensity of monochrome images.
+
+A monochromatic object or image reflects colors in
+shades of limited colors or hues. Images using only
+shades of grey (with or without black or white) are
+called grayscale or black-and-white.
+
+Hue is one of the main properties (called color
+appearance parameters) of a color.
+
+Digital Image Processing
+
+Digital image processing refers to processing digital
+images by means of a digital computer.
+
+ A digital image is composed of a finite number of
+elements, each of which has a particular location
+and value.
+
+ These
+
+elements
+
+are
+elements, image elements, pels and pixels.
+
+referred to as picture
+
+ Pixel is the term most widely used to denote the
+
+elements of a digital image.
+
+Chapter 2
+
+Digital Image Fundamentals
+
+51
+
+Remember?
+
+52
+
+Structure of Human Eye
+
+ No need to study for term
+
+final.
+
+ You can safely skip section
+
+2.1
+
+ Interested
+
+readers
+
+are
+
+requested to go through it.
+
+53
+
+EM Spectrum
+
+The electromagnetic spectrum is the term used
+
+by scientists to describe the entire range of light
+
+that exists.
+
+From radio waves to gamma rays, most of the
+
+light in the universe is, in fact, invisible to us!
+
+54
+
+EM Spectrum
+
+55
+
+EM Spectrum
+
+Monochromatic Light
+ Light that is void of color is called monochromatic
+light. (A photograph or picture developed or executed in black and white or in
+varying tones of only one color.)
+
+ The only attribute of monochromatic light
+
+is
+
+intensity. (can be referred to as brightness)
+
+ The intensity of monochromatic light is perceived
+
+to vary from black to grays and finally to white.
+
+56
+
+EM Spectrum
+
+Monochromatic Light
+
+ The term gray level is used to commonly denote
+
+monochromatic intensity.
+
+ The range of measured values of monochromatic
+
+light from black to white is usually called the gray
+
+scale
+
+and monochromatic
+
+images
+
+are often
+
+referred to as gray-scale images.
+
+57
+
+EM Spectrum
+
+Chromatic Light
+
+ Chromatic light spans the electromagnetic energy
+
+spectrum from approximately 0.43 to 0.79 µm
+
+58
+
+Image Acquisition
+
+59
+
+Image Acquisition
+
+Three main elements
+Illumination source
+
+•
+• Scene
+• Sensor (imaging system)
+
+60
+
+Sensor Array
+
+61
+
+Sensor Array
+
+The sensor array produces outputs proportional
+integral of the light received at each sensor.
+
+to the
+
+62
+
+Sensor Array
+
+Digital and analog circuitry sweep these outputs and convert
+them to an analog signal which is then digitized by another
+section of the imaging system
+
+63
+
+A Simple Image Formation Model
+
+Recall from previous class:
+
+An image has two basic attributes:
+
+• A location (x, y): picture element, pixel, pel, etc
+
+• A value f(x, y) at pixel (x, y): gray scale value
+
+f(x, y) represents intensity which is proportional
+
+energy radiation.
+
+0 <  f(x, y) < ∞
+
+64
+
+Image Digitization
+
+65
+
+Image Digitization
+
+Two steps :
+
+1. Sampling : Digitizing the coordinates values is
+
+called sampling.
+
+2. Quantization : Digitizing the amplitude values
+
+is called quantization.
+
+66
+
+Image Digitization
+
+Let’s start with a gray scale image. 
+
+We will try to digitize this image 
+
+along the horizontal line segment 
+
+AB
+
+67
+
+Image Digitization
+
+This is a plot of amplitude
+values of the continuous image
+along the line segment AB.
+Random variations are due to
+image noise.
+
+68
+
+Image Digitization
+
+To sample this function,
+we take equally spaced
+samples along line AB
+
+69
+
+Image Digitization
+
+The values of the samples
+continuous
+a
+still
+range of intensity values
+
+span
+
+70
+
+Image Digitization
+
+Intensity scale is divided
+discrete
+into
+intervals.
+
+eight
+
+71
+
+Image Digitization
+
+For Sensor array:
+
+72
+
+Representing Digital Images
+
+73
+
+Representing Digital Images
+
+Each element of this matrix
+is called pixel or pel
+
+Matrix Representation
+
+74
+
+Representing Digital Images
+
+Low contrast
+
+Med contrast
+
+High contrast
+
+75
+
+Representing Digital Images
+
+ Number of Rows (M) and Columns (N) can be any integer
+
+ How many discrete intensity levels?
+
+o Number of gray levels, L,  is usually power of 2:
+
+L = 2k
+
+ The number of bits required to store a digitized image :
+
+b = M ×N ×k
+
+ For squared image : 
+
+b = N2k
+
+76
+
+Representing Digital Images
+
+ Suppose, you want to create an image of
+
+size 1024 × 512 having 72 distinct intensity
+
+values.What will be the size of the image?
+
+77
+
+Image Interpolation
+
+78
+
+Image Interpolation
+
+ Interpolation is the process of using known data
+
+to estimate values at unknown locations.
+
+• Zooming (Over Sampling)
+
+• Shrinking (Under Sampling)
+
+79
+
+Nearest Neighbor Interpolation
+
+An 8X8 image 
+Resize this image to 12X12
+
+80
+
+Nearest Neighbor Interpolation
+
+grid with the same pixel
+Create an imaginary 12 X 12
+spacing as the original and then shrink it so that it fits exactly
+over the original image.
+
+An 8X8 image 
+Resize this image to 12X12
+
+81
+
+Nearest Neighbor Interpolation
+
+grid with the same pixel
+Create an imaginary 12 X 12
+spacing as the original and then shrink it so that it fits exactly
+over the original image.
+
+• To
+
+perform
+
+intensity-level
+
+assignment for any point in the
+
+overlay, we look for its closest
+
+pixel
+
+in the original
+
+image and
+
+assign the intensity of that pixel to
+
+the new pixel in the 12 X 12 grid.
+
+• This process is also known as pixel
+
+replication method.
+
+82
+
+Nearest Neighbor Interpolation
+
+83
+
+Pixel and their Relationships
+
+84
+
+Neighbors of a pixel
+
+ 3 types of neighbors
+
+• N4(p):  4-neighbor
+
+• ND(p):  diagonal neighbor
+
+• N8(p):  8-neighbor
+
+85
+
+Neighbors of a pixel
+
+• N4(p):  4-neighbor
+
+Defined as the pixels at (x+1, y), (x-1, y), (x, y+1), 
+
+(x, y-1)
+
+86
+
+Neighbors of a pixel
+
+• ND(p):  diagonal neighbor
+
+Defined as the pixels at (x+1, y+1), (x+1, y-1), (x-
+
+1, y+1), (x-1, y-1)
+
+87
+
+Neighbors of a pixel
+
+• N8(p):  8-neighbor
+
+Defined as the pixels at (x+1, y), (x-1, y), (x, y+1), 
+
+(x, y-1),(x+1, y+1), (x+1, y-1), (x-1, y+1), (x-1, y-1)
+
+88
+
+Pixel Adjacency
+
+ Adjacencies depends on both
+
+• Neighborhood
+
+• Pixel gray values
+
+Adjacent pixels must be neighbors and have gray
+values from the same set, V
+
+89
+
+Pixel Adjacency
+
+Adjacent pixels must be neighbors and have gray
+
+values from the same set, V
+
+Can not be adjacent
+if both values are
+not present in V
+
+Can be adjacent
+
+90
+
+Pixel Adjacency
+
+ 3 types of adjacencies
+
+• 4-adjacency
+
+• 8-adjacency
+
+• m-adjacency
+
+91
+
+4-adjacency
+
+Two pixels p, q are 4-adjacent if
+
+• q in N4(p) and
+
+• p, q have values from set V
+
+p q
+r
+
+92
+
+8-adjacency
+
+Two pixels p, q are 8-adjacent if
+
+• q in N8(p) and
+
+• p, q have values from set V
+
+q
+
+r
+
+p
+
+93
+
+m-adjacency
+
+Two pixels p, q are m-adjacent if
+
+• p, q have values from set V and
+
+o q in N4(p), or
+o q in ND(p) and N4 (p) ∩ N4 (q) has no pixel
+
+with value from V
+
+q
+
+p
+
+q
+
+p
+
+Not m-adjacent
+
+m-adjacent
+
+94
+
+THANK YOU!!!
+
+Chapter 3
+
+Intensity Transformations 
+and Spatial Filtering
+
+1
+
+Remember?
+
+2
+
+Our Objective
+
+Image Enhancement
+
+ Enhancement is the process of manipulating an 
+
+image so that the result is more suitable than the 
+
+original for a specific application.
+
+ Very subjective
+
+ Application dependent
+
+ Viewer is the ultimate judge
+
+Classification of Image Enhancement
+
+ Enhancement in spatial domain (Chapter 3) 
+
+Spatial domain is a plane where a digital image is 
+
+defined by the spatial coordinates of its pixels. 
+
+ Enhancement in frequency domain (Chapter 4)
+
+Frequency domain where a digital image is defined 
+
+by its decomposition into spatial frequencies 
+
+participating in its formation.
+
+Classification of Image Enhancement
+
+ Enhancement in spatial domain
+
+• The section of the real plane spanned by the
+
+coordinates of an image is called the spatial
+
+domain.
+
+• manipulates pixel by pixel basis
+
+How does It Work?
+
+Enhancement in Spatial Domain
+
+ The spatial domain processes can be denoted by
+
+the expression
+
+g(x, y) = T [ f(x, y)]
+
+ f(x, y) is the input image and g(x, y) is the output
+
+image and T is an operator defined over a
+
+neighborhood of point (x, y)
+
+Enhancement in Spatial Domain
+
+3X3 
+neighborhood
+
+(x, y)
+
+Image f(x, y)
+
+Enhanced 
+Image g(x, y)
+
+yxg
+,(
+
+)
+
+=
+
+[
+yxfT
+,(
+
+])
+
+Enhancement in Spatial Domain
+
+ Neighborhood can be as small as a single pixel
+
+(x, y)
+
+Image, f(x, y)
+
+Enhanced 
+Image, g(x, y)
+
+Enhancement in Spatial Domain
+
+ Neighborhood (sub-image) rolls over the entire image,
+
+each time centering a different pixel.
+
+ For any specific location (x, y), the value of the output
+image g at those coordinates is equal to the result of
+applying T to the neighborhood with origin at (x, y).
+
+Image f(x, y)
+
+Enhanced 
+Image g(x, y)
+
+yxg
+,(
+
+)
+
+=
+
+[
+yxfT
+,(
+
+])
+
+Enhancement in Spatial Domain
+
+ Neighborhood (sub-image) rolls over the entire image,
+
+each time centering a different pixel.
+
+ For any specific location (x, y), the value of the output
+image g at those coordinates is equal to the result of
+applying T to the neighborhood with origin at (x, y).
+
+Image f(x, y)
+
+Enhanced 
+Image g(x, y)
+
+yxg
+,(
+
+)
+
+=
+
+[
+yxfT
+,(
+
+])
+
+Enhancement in Spatial Domain
+
+ Neighborhood (sub-image) rolls over the entire image,
+
+each time centering a different pixel.
+
+ For any specific location (x, y), the value of the output
+image g at those coordinates is equal to the result of
+applying T to the neighborhood with origin at (x, y).
+
+Image f(x, y)
+
+Enhanced 
+Image g(x, y)
+
+yxg
+,(
+
+)
+
+=
+
+[
+yxfT
+,(
+
+])
+
+Enhancement in Spatial Domain
+
+ Neighborhood (sub-image) rolls over the entire image,
+
+each time centering a different pixel.
+
+ For any specific location (x, y), the value of the output
+image g at those coordinates is equal to the result of
+applying T to the neighborhood with origin at (x, y).
+
+Image f(x, y)
+
+Enhanced 
+Image g(x, y)
+
+yxg
+,(
+
+)
+
+=
+
+[
+yxfT
+,(
+
+])
+
+Enhancement in Spatial Domain
+
+ Neighborhood (sub-image) rolls over the entire image,
+
+each time centering a different pixel.
+
+ For any specific location (x, y), the value of the output
+image g at those coordinates is equal to the result of
+applying T to the neighborhood with origin at (x, y).
+
+Image f(x, y)
+
+Enhanced 
+Image g(x, y)
+
+yxg
+,(
+
+)
+
+=
+
+[
+yxfT
+,(
+
+])
+
+Enhancement in Spatial Domain
+
+ Neighborhood (sub-image) rolls over the entire image,
+
+each time centering a different pixel.
+
+ For any specific location (x, y), the value of the output
+image g at those coordinates is equal to the result of
+applying T to the neighborhood with origin at (x, y).
+
+Image f(x, y)
+
+Enhanced 
+Image g(x, y)
+
+yxg
+,(
+
+)
+
+=
+
+[
+yxfT
+,(
+
+])
+
+Enhancement in Spatial Domain
+
+ Neighborhood (sub-image) rolls over the entire image,
+
+each time centering a different pixel.
+
+ For any specific location (x, y), the value of the output
+image g at those coordinates is equal to the result of
+applying T to the neighborhood with origin at (x, y).
+
+Image f(x, y)
+
+Enhanced 
+Image g(x, y)
+
+yxg
+,(
+
+)
+
+=
+
+[
+yxfT
+,(
+
+])
+
+Spatial Filtering
+
+ This procedure is called Spatial Filtering.
+
+ The neighborhood along with a predefined
+
+operation is called a spatial filter.
+
+ Spatial
+
+filter
+
+is also known as spatial mask,
+
+kernel, template or window. Spatial mask is the
+
+most popular.
+
+Intensity Transformation Function
+
+Intensity Transformation Function
+
+ If the neighborhood is of size 1 × 1, g depends
+
+only on the value of f at a single point (x, y) and T
+
+becomes
+
+intensity (gray-level)
+
+transformation
+
+function of the form
+
+s = T(r)
+
+Contrast Stretching
+
+ Input gray level R
+ Produce an image of higher 
+contrast than the original.
+ Below a threshold (m), image 
+is compressed towards black
+ Values of r lower than m are 
+
+compressed by the 
+
+transformation function into a 
+
+narrow range of s, toward 
+
+black.
+
+ Above m, image is stretched 
+
+towards white
+
+Thresholding
+
+ Thresholding is a special 
+
+case of contrast stretching.
+
+ Produces a binary image
+
+ Useful in image 
+
+segmentation
+
+Thresholding
+
+r
+
+s
+
+Bit Plane Slicing
+
+What is this all about ???
+
+Bit-plane Slicing
+
+Bit-plane Slicing
+
+Bit-plane Slicing
+
+ The four higher order bit, especially the last two, contain
+
+a significant amount of visually significant data.
+
+ The lower-order planes contribute to more subtle
+
+intensity details in the image.
+
+original 
+image
+
+Bit-plane Slicing
+
+Some of the bit plane sliced 
+images have black border. 
+
+Look at this gray border. 
+Its decimal value is 194
+
+Some of the bit plane sliced 
+images have white border. 
+
+original 
+image
+
+Bit-plane Slicing
+
+Binary of 194 is 11000010
+
+original 
+image
+
+Bit-plane Slicing
+
+Binary of 194 is 11000010
+
+original 
+image
+
+Bit-plane Slicing
+
+Binary of 194 is 11000010
+
+original 
+image
+
+Bit-plane Slicing
+
+Original Image
+
+Bit-plane Slicing
+
+ Useful for analyzing the relative importance of
+
+each bit in an image.
+
+ This process aids in determining the adequacy of
+
+the number of bits used to quantize the image.
+
+ Useful in image compression.
+
+Bit-plane Slicing
+
+Image Compression
+
+Bit planes 8 & 7
+
+Bit planes 8, 7, 6 & 5
+
+Bit planes 8, 7 & 6
+
+Original Image
+
+Image Enhancement using 
+
+Histogram Processing
+
+Image Histogram
+
+4
+
+3
+
+2
+
+1
+
+0
+
+9  8  9  8
+2  7  4  7
+6  4  6  1
+4  0  7  4
+An image
+
+Histogram:
+
+0     1      2      3    4      5     6     7     8     9
+2
+1
+
+0
+
+1
+
+1
+
+4
+
+0
+
+2
+
+3
+
+2
+
+h:
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Normalized Image Histogram
+
+9  8  9  8
+2  7  4  7
+6  4  6  1
+4  0  7  4
+An image
+
+Histogram:
+
+0       1       2      3      4       5       6       7      8       9
+
+h:
+
+?
+
+?
+
+?
+
+0
+
+?
+
+0
+
+?
+
+?
+
+?
+
+?
+
+Normalized Image Histogram
+
+rp
+(
+
+)
+
+k
+
+=
+
+n
+k
+
+/
+
+n
+
+ Normalized histogram is more like probabilities
+
+ p(rk): how likely a pixel will have gray level rk
+
+Normalized Image Histogram
+
+9  8  9  8
+2  7  4  7
+6  4  6  1
+4  0  7  4
+An image
+
+Histogram:
+
+0       1       2      3      4       5       6       7      8       9
+
+h:
+
+1/16 1/16 1/16
+
+0
+
+1/4
+
+0
+
+1/8
+
+3/16
+
+1/8
+
+1/8
+
+Image Histogram
+
+Histogram for dark image
+
+Image Histogram
+
+Histogram for bright image
+
+Image Histogram
+
+Histogram for low
+contrast image
+
+Image Histogram
+
+Image Histogram
+
+Dark
+
+Bright
+
+• Dark images: bins in the low
+
+end
+
+• Bright images: bins in the high
+
+end
+
+• Low contrast images: bins in a
+
+Low Contrast
+
+narrow range
+
+• High contrast images: bins are
+
+in the entire range
+
+High Contrast
+
+Image Histogram
+
+ An image whose pixels tend to occupy the entire
+
+range of possible intensity level, will have an
+
+appearance of high contrast.
+
+Image Histogram
+
+ histogram(S,'Normalization','probability')
+
+Histogram Equalization
+
+Histogram Equalization
+
+Histogram Equalization
+
+Output gray 
+levels
+
+L-1
+
+L-1
+
+Input gray 
+levels
+
+Histogram Equalization
+
+• Let s, r: are all discrete and in [0, L-1]
+
+=
+rTs
+)(
+
+0
+
+≤≤
+r
+
+1-L
+
+• Let, 2 conditions hold:
+• T(r): single valued and monotonous in 
+
+0
+
+≤≤ r
+
+1-L
+
+0
+
+≤
+
+rT
+)(
+
+−≤
+L
+
+     1
+
+for 
+0
+
+−≤≤
+Lr
+
+1
+
+•
+
+L-1
+
+L-1
+
+1
+
+guarantees
+
+that
+Condition
+output intensity values will never
+be less than corresponding input
+values thus preventing artifacts
+created by reversals of intensity.
+
+        
+Histogram Equalization
+
+• Let s, r: are all discrete and in [0, L-1]
+
+=
+rTs
+)(
+
+0
+
+≤≤
+r
+
+1-L
+
+• Let, 2 conditions hold:
+• T(r): single valued and monotonous in 
+
+0
+
+≤≤ r
+
+1-L
+
+0
+
+≤
+
+rT
+)(
+
+−≤
+L
+
+     1
+
+for 
+0
+
+−≤≤
+Lr
+
+1
+
+•
+
+L-1
+
+Condition 2 guarantees that the
+range of output intensities is the
+same as the input.
+
+L-1
+
+        
+Histogram Equalization
+
+• Let,
+
+– pr(r): the equalized histogram of the given image
+– ps(s): the equalized histogram of the output image
+
+L-1
+
+L-1
+
+Histogram Equalization
+
+• Objective: to find the transformed image so that ps(s) of
+
+the transformed image is uniform
+
+Apply this
+
+Get this
+
+p(s)
+
+s
+
+Histogram Equalization
+
+Histogram Equalization
+
+Local Histogram Processing
+
+Local Histogram Processing
+
+ The previous method was global because pixels
+
+are modified by a transformation function based
+
+on the intensity distribution of an entire image.
+
+ In some cases, it is necessary to enhance details
+
+over small areas in an image.
+
+ The
+
+solution
+
+is
+
+to
+
+devise
+
+transformation
+
+functions based on the intensity distribution in a
+
+neighborhood of every pixel in the image.
+
+Local Histogram Processing
+
+ Define a neighborhood and move its center from
+
+pixel to pixel.
+
+ At each location, the histogram of the points in
+
+the neighborhood is computed.
+
+ Histogram equalization is applied.
+
+Local Histogram Processing
+
+original
+
+Equalized 
+with global 
+histogram
+
+Equalized with 
+3X3 local 
+histogram
+
+Local Histogram Processing
+
+ Global histogram equalization increases noise
+
+ Local histogram equalization provides more fine
+
+details than global histogram equalization
+
+ The intensity values of the objects were too close
+
+to the intensity of the large squares and their
+
+sizes were
+
+too small
+
+to influence global
+
+histogram equalization.
+
+Spatial Filtering
+
+Spatial Filtering
+
+ Neighborhood (sub-image) rolls over the entire image,
+
+each time centering a different pixel.
+
+ For any specific location (x, y), the value of the output
+image g at those coordinates is equal to the result of
+applying T to the neighborhood with origin at (x, y).
+
+Image f(x, y)
+
+Enhanced 
+Image g(x, y)
+
+yxg
+,(
+
+)
+
+=
+
+[
+yxfT
+,(
+
+])
+
+Spatial Filtering
+
+ This procedure is called Spatial Filtering.
+
+ The neighborhood along with a predefined
+
+operation is called a spatial filter.
+
+ Spatial
+
+filter
+
+is also known as spatial mask,
+
+kernel, template or window. Spatial mask is the
+
+most popular.
+
+Spatial Filtering
+
+ Spatial filter consists of
+
+• A neighborhood
+
+• A predefined operation
+
+ Filtering creates a new pixel with coordinates
+
+equal
+
+to the coordinates of the center of the
+
+neighborhood and whose value is the result of
+
+the filtering operation.
+
+Spatial Filtering
+
+ Linear spatial filter
+
+If the operation performed on the image pixels is
+
+linear, then the filter is called a linear spatial
+
+filter.
+
+ Non-linear spatial filter
+
+If the operation performed on the image pixels is
+
+non-linear, then the filter is called a non-linear
+
+spatial filter.
+
+Spatial Filtering
+
+ A mask or filter or template or kernel or window
+
+defines the neighborhood
+
+ Mask size is usually m × n
+
+m = 2a + 1, n = 2b + 1
+
+where a & b are positive integers.
+
+Let’s take a look how it works!!!
+
+Image 
+Origin
+
+Pixel under 
+consideration
+Mask
+
+Image f(x,y)
+
+Spatial Filtering
+
+w(-1,-1) w(-1,0) w(-1,1)
+
+w(0,-1) w(0,0)
+
+w(0,1)
+
+w(1,-1)
+
+w(1,0)
+
+w(1,1)
+
+Mask Coefficients 
+showing coordinate 
+arrangement
+
+Image 
+Origin
+
+Image f(x,y)
+
+Spatial Filtering
+
+w(-1,-1)
+
+w(-1,0)
+
+w(-1,1)
+
+w(0,-1)
+
+w(0,0)
+
+w(0,1)
+
+w(1,-1)
+
+w(1,0)
+
+w(1,1)
+
+Mask Coefficients showing 
+coordinate arrangement
+
+f(x-1,y-1)
+
+f(x-1,y )
+
+f(x-1,y+1)
+
+f(x,y-1)
+
+f(x,y)
+
+f(x,y+1)
+
+f(x+1,y-1)
+
+f(x+1,y)
+
+f(x+1,y+1)
+
+Pixels of image section under Mask
+
+Image 
+Origin
+
+Image f(x,y)
+
+Spatial Filtering
+
+w(-1,-1)
+
+w(-1,0)
+
+w(-1,1)
+
+w(0,-1)
+
+w(0,0)
+
+w(0,1)
+
+w(1,-1)
+
+w(1,0)
+
+w(1,1)
+
+Mask Coefficients showing 
+coordinate arrangement
+
+f(x-1,y-1)
+
+f(x-1,y )
+
+f(x-1,y+1)
+
+f(x,y-1)
+
+f(x,y)
+
+f(x,y+1)
+
+f(x+1,y-1)
+
+f(x+1,y)
+
+f(x+1,y+1)
+
+Pixels of image section under Mask
+
+Spatial Filtering
+
+w(-1,-1)
+
+w(-1,0)
+
+w(-1,1)
+
+)1
+
+w(0,-1)
+
+w(0,0)
+
+w(0,1)
+
+w(1,-1)
+
+w(1,0)
+
+w(1,1)
+
+Mask Coefficients showing 
+coordinate arrangement
+
+Response of the filter 
+at point (x, y):
+
+−
+
+xf
+(
+−
+
+−−
+)1,1(
+
+=
+wR
+−
++
+w
+)0,1(
+
++
+w
+)0,1(
+)1,1(
+xf
+(
+
+w
+
++
+
+xf
+(
+xf
+(
++
+,1
+
+y
+)
+,1
++
+y
+)
+,1
++
+)1
+y
+
+−
+y
+,1
+
++
+
+f(x-1,y-1)
+
+f(x-1,y )
+
+f(x-1,y+1)
+
+f(x,y-1)
+
+f(x,y)
+
+f(x,y+1)
+
+f(x+1,y-1)
+
+f(x+1,y)
+
+f(x+1,y+1)
+
+Pixels of image section under Mask
+
+Spatial Filtering
+
+A more general equation for response:
+
+,(
+yxg
+
+)
+
+=
+
+a
+
+b
+
+∑ ∑
+
+s
+
+−=
+
+a
+
+t
+
+−=
+
+b
+
+),(
+tsw
+
+(
+xf
+
++
+
+,
+ys
+
++
+
+t
+
+)
+
+Convolution operation
+
+Convolution mask
+
+w(-1,-1) w(-1,0) w(-1,1)
+
+w(0,-1) w(0,0)
+
+w(0,1)
+
+w(1,-1)
+
+w(1,0)
+
+w(1,1)
+
+Spatial Correlation and 
+
+Convolution
+
+Spatial Correlation
+
+0 0 0 1 0 0 0 0
+
+Discrete unit impulse function
+
+Spatial Correlation
+
+Spatial Correlation
+
+Spatial Correlation
+
+Spatial Correlation
+
+Spatial Correlation
+
+Spatial Correlation
+
+Spatial Correlation
+
+Spatial Correlation
+
+Spatial Convolution
+
+Now, Convolute 0 0 0 1 0 0 0 0 by 1 2 3 2 8
+
+Steps
+
+ Reverse 1 2 3 2 8 to 8 2 3 2 1
+
+ Then apply correlation as mentioned in 
+
+previous slides
+
+Spatial Convolution
+
+Position after one shift
+
+Position after 4 
+shifts
+
+Final position
+
+Starting position
+
+Full padded
+
+Position after one shift
+
+2D Correlation and Convolution
+
+240 225 210 190 160
+
+220 195 170 140 115
+
+190 160 145 125 100
+
+150 130 115
+
+110
+
+70
+
+85
+
+60
+
+65
+
+45
+
+95
+
+50
+
+30
+
+75
+
+40
+
+15
+
+An Image
+
+1/9
+
+1/9
+1/9
+
+1/9
+
+1/9
+1/9
+
+1/9
+
+1/9
+1/9
+
+Mask
+
+Apply the mask and calculate the first row
+
+Issues in spatial filtering
+
+ When the mask moves closer to the border
+
+– Closer to that distance: some rows/columns of the 
+
+mask are out of image
+
+ Way out:
+
+– Ignoring the outside columns/rows
+
+– Padding
+
+• Zero padding
+
+• Mirror padding
+
+Smoothing Spatial Filters
+
+Smoothing Spatial Filters
+
+ Smoothing filters are used for
+
+• blurring
+
+• noise reduction
+
+• sharp transition reduction
+
+• finding large objects, ignoring small details
+
+Smoothing Linear Filters
+
+ The output of a smoothing linear spatial filter is
+
+simply the (weighted) average of
+
+the pixels
+
+contained in the neighborhood.
+
+ Also known as averaging filters or
+
+lowpass
+
+filters.
+
+Smoothing Linear Filters
+
+R
+
+=
+
+9
+
+1
+∑
+19
+=
+i
+
+iz
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+×
+
+1
+9
+
+R
+
+=
+
+1
+16
+
+16
+
+∑
+
+i
+
+=
+1
+
+1
+16
+
+×
+
+1
+
+2
+
+1
+
+2
+
+4
+
+2
+
+i zw
+
+i
+
+1
+
+2
+
+1
+
+A spatial averaging filter in
+which all coefficients are
+equal is called a box filter.
+
+This mask yields a weighted
+average.
+gives more
+importance to the center
+pixels and the 4-neighbors.
+
+It
+
+Smoothing Linear Filters
+
+clc;
+clear all;
+close all;
+I = imread('cameraman.tif');
+figure, imshow(I);
+
+h = fspecial('average',5); % h = fspecial('average',hsize)
+localMean = imfilter(I,h,'replicate');
+imshowpair(I,localMean,'montage')
+
+Smoothing Linear Filters
+
+ Black square: 3, 5, 9, 15, 25, 35, 45
+
+ Border 25 pixels apart
+
+ Circle: 25 pixels, gray: 0, 20, ..., 100%
+
+ Small a’s: 10, 12, 24 pixels
+
+ Large a: 60 pixels
+
+ Bars: 5X100 pixels, Sep: 20 pix
+
+ Noise boxes: 50X120 pixels
+
+Smoothing Linear Filters
+
+Original Image
+
+After applying 
+5 × 5 filter
+
+After applying 
+15 × 15 filter
+
+After applying 
+3 × 3 filter
+
+After applying 
+9 × 9 filter
+
+After applying 
+25 × 25 filter
+
+Smoothing Linear Filters
+
+ Blurring helps to find 
+
+major objects
+
+ Removes fine details
+
+ Original image contains 
+
+lots of small objects
+
+Smoothing Linear Filters
+
+Original image
+
+Smoothed by
+15X15 mask
+
+Thresholding
+after smoothing
+
+Smoothing Non-linear Filters
+
+Order-Statistic(Nonlinear) Filters
+
+ Nonlinear filtering
+
+ Response is based on ordering(ranking)
+
+the
+
+pixels
+
+ Example : Median filter
+
+Median Filter
+
+Advantage
+
+ For certain type of random noise, they provide excellent
+
+noise reduction
+
+ Considerably less blurring effect
+
+ Particularly effective in the presence of impulse noise,
+
+also called salt-and-pepper noise.
+
+Median Filter
+
+• Policy:
+
+– Sort the values of enclosed pixels
+– Select the median as output pixel level
+
+• Example:
+
+– Let, 3X3 mask size
+
+– Sorted values: 10, 15, 20, 20, 20, 20, 20, 
+
+25, 100
+
+– Median is 20
+– Output pixel value is 20
+
+10
+
+20
+
+25
+
+20
+
+100
+
+20
+
+20
+
+20
+
+15
+
+Image pixel values 
+under masks
+
+Median Filter
+
+Noisy image
+
+Noise reduction 
+by Avg. filter
+
+Noise reduction 
+by median filter
+
+Histogram processing
+
+Histogram processing
+
+Histogram processing
+
+Histogram processing
+
+Histogram processing
+
+Histogram processing
+
+Histogram processing
+
+Histogram processing
+
+Histogram processing
+
+Histogram processing
+
+12
+
+Sharpening Spatial Filters
+
+The concept of 
+
+sharpening filter
+
+Sharpening Spatial Filters
+
+To highlight fine detail in an image or to enhance detail that 
+has been blurred, either in error or as a natural effect of a 
+particular method of image acquisition.
+
+Blurring vs Sharpening 
+•Blurring/smooth is done in spatial domain by pixel averaging 
+in a neighbors, it is a process of integration.
+
+• Sharpening is an inverse process, to find the difference by 
+the neighborhood, done by spatial differentiation. spatial 
+differentiation.
+
+Sharpening Spatial Filters
+
+ Sharpening
+
+filters
+
+highlights
+
+transitions
+
+in
+
+intensity
+
+ Very useful for highlighting fine details
+
+ Helps to remove blurring
+
+Smoothing vs Sharpening
+
+Smoothing
+
+Sharpening
+
+Averaging
+
+Difference
+
+Integration
+
+Differentiation
+
+Image Sharpening
+
+Sharpening
+
+ Strength of
+
+response of
+to
+
+derivative proportional
+image discontinuity
+
+Difference
+
+Differentiation
+
+ Sharp changes noise point,
+edges, lines, grey ramp are
+easily detected
+
+Sharpening Spatial Filters
+
+Criteria for Optimal Edge Detection
+
+Criteria for Optimal Edge Detection
+
+Criteria for Optimal Edge Detection
+
+Image Sharpening
+
+Derivative operator
+
+•The strength of the response of a derivative operator is 
+proportional to the degree of operator is proportional to 
+the degree of discontinuity of the image at the point at 
+which the operator is applied.
+
+•Image differentiation 
+
+–enhances edges and other discontinuities (noise) 
+–deemphasizes area with slowly varying gray-level 
+values.
+
+Derivatives and Noise
+
+Derivatives and Noise
+
+Image Sharpening
+
+Image Sharpening
+
+ 1st and 2nd order derivatives will be used
+
+ Behavior to check
+
+• Const gray level
+
+• At onset and end of discontinuities (ramp 
+
+and step)
+
+• Along gray-ramp
+
+Properties of Derivatives
+
+ Value of 1st order derivative will be
+
+0 at const gray level
+
+•
+• Nonzero at onset of step and ramp
+• Nonzero along ramp
+
+ Value of 2nd order derivative will be
+
+0 at const gray level
+
+•
+• Nonzero at onset and end of step and ramp
+
+•
+
+0 along ramp
+
+Digital 1st Order Derivative
+
+∂
+f
+∂
+x
+
+=
+
+change
+change
+
+ of 
+ of 
+
+f
+x
+
+∂
+f
+∂
+x
+
+−+
+(
+)1
+xf
+−+
+1
+x
+−+
+xf
+(
+)1
+
+)(
+xf
+x
+xf
+)(
+
+=
+
+=
+
+      
+     
+Digital 2nd Order Derivative
+
+change
+
+change
+
+ of 
+
+∂
+f
+∂
+x
+x
+ of 
+
+2
+
+∂
+∂
+x
+
+f
+
+2
+
+=
+
+(
+xf
+
+−+
+)1
+
+f
+2
+
+2
+
+∂
+∂
+x
+
+=
+
+=
+
+xf
+(
+
+++
+)1
+
+xf
+(
+
+−
+
+−
+)(
+)(
+(
+xf
+xf
+−+
+1
+x
+x
+−−
+xf
+)(2)1
+
+(
+xf
+
+−
+
+)1
+
+      
+     
+1st Order & 2nd Order Derivative
+
+ Gray-ramp (smooth transition betn white and black)
+ Isolated noise point
+ Line
+ Edge
+
+1st Order & 2nd Order Derivative
+
+1st Order & 2nd Order Derivative
+
+ramp
+
+edge
+
+Noise point
+
+line
+
+1st Order & 2nd Order Derivative
+
+∂
+f
+∂
+x
+
+=
+
+xf
+(
+
+−+
+)1
+
+xf
+)(
+
+f
+2
+
+2
+
+∂
+∂
+x
+
+=
+
+xf
+(
+
+++
+)1
+
+xf
+(
+
+−−
+
+xf
+)(2)1
+
+ 
+1st Order & 2nd Order Derivative
+
+1st Order & 2nd Order Derivative
+
+1st Order & 2nd Order Derivative
+
+∂
+f
+∂
+x
+
+=
+
+xf
+(
+
+−+
+)1
+
+xf
+)(
+
+ 
+1st Order & 2nd Order Derivative
+
+∂
+f
+∂
+x
+
+=
+
+xf
+(
+
+−+
+)1
+
+xf
+)(
+
+f
+2
+
+2
+
+∂
+∂
+x
+
+=
+
+(
+xf
+
+++
+)1
+
+(
+xf
+
+−−
+
+)(2)1
+xf
+
+ 
+THANK YOU!!!
+
+Chapter 9
+
+Morphological Processing
+
+1
+
+Remember?
+
+2
+
+Morphological Processing
+
+ Binary
+
+images may
+
+contain
+
+numerous
+
+imperfections.
+
+ Morphological image processing pursues the
+removing these imperfections by
+goals of
+accounting for the form and structure of the
+image.
+
+Morphological Processing
+
+ Binary
+
+images may
+
+numerous
+imperfections. In particular, the binary regions
+produced by simple thresholding are distorted by
+noise and texture.
+
+contain
+
+Basic concepts
+
+Morphological image processing is a collection
+of non-linear (non-sequential) operations related to
+the shape or morphology of features in an image.
+
+Morphological operations rely only on the relative
+ordering of pixel values and therefore are especially
+suited to the processing of binary images.
+
+Morphological techniques probe an image with a
+small
+template called a structuring
+element.
+
+shape or
+
+Basic concepts
+
+The structuring element is positioned at all possible
+locations in the image and it is compared with the
+corresponding neighborhood of pixels.
+
+Some operations test whether the element "fits"
+within the neighborhood, while
+
+others test whether
+neighborhood:
+
+it "hits" or
+
+intersects the
+
+Morphological Operations
+
+The most basic morphological operations are
+dilation and erosion.
+In a morphological operation, the value of each
+pixel in the output image is based on a comparison of
+the corresponding pixel in the input image with its
+neighbors.
+By
+the
+size
+neighborhood, you can construct a morphological
+operation that is sensitive to specific shapes in the
+input image
+
+choosing
+
+shape
+
+and
+
+the
+
+of
+
+Basic concepts
+
+Basic concepts
+
+Structuring elements can be seen in 3 different
+ways in the test input image which are as follows:
+
+1) Structuring element fits the image region
+2) Structuring element hits (intersects) the image
+
+region
+
+3) Structuring element neither fits nor hits the image
+
+region
+
+Structuring Element
+
+Morphological techniques probe an image with a
+small
+template called a structuring
+element.
+
+shape or
+
+The structuring element is a small binary image,
+i.e. a small matrix of pixels, each with a value of zero
+or one:
+
+Structuring Element
+
+What is matrix of pixels???
+
+The matrix dimensions specify the size of the 
+structuring element.
+
+The pattern of ones and zeros specifies the shape of 
+the structuring element.
+
+Structuring Element
+
+An essential part of the dilation and erosion
+operations is the structuring element used to probe
+the input image.
+
+A structuring element is a matrix consisting of
+only 0's and 1's that can have any arbitrary shape
+and size.
+
+The
+neighborhood.
+
+pixels with values
+
+of
+
+1
+
+define
+
+the
+
+Structuring Element
+
+Structuring Element
+
+How to Calculate the Origin of a Structuring Element
+
+Equation can be written as:
+origin = floor((size+1)/2)
+
+Lets say structuring element mask size is 3 x 3
+
+Base on the equation;
+Origin = floor((3+1)/2) = 2
+
+The position will be (2,2) if initial
+Position is considered as (1,1)
+
+Structuring Element
+
+There are two main characteristics that are directly
+related to structuring elements:
+
+Shape and
+
+Size
+
+Structuring Element
+
+Shape
+
+For example, the structuring element can be a
+circle, square, diamond etc.
+By choosing a particular structuring element, one
+sets a way of differentiating some objects (or parts
+of objects) from others, according to their shape or
+spatial orientation.
+
+Structuring Element
+
+Size
+
+For example, one structuring element can be a 3 x 3
+square or a 21 x 21 square.
+Setting the size of the structuring element is similar
+to setting the observation scale, and setting the
+criterion to differentiate image objects or features
+according to size.
+
+Structuring Element
+
+Structuring elements contains different shapes…
+
+1) Square
+
+Structuring Element
+
+2) Diamond
+
+Structuring Element
+
+3) Disk
+
+Structuring Element
+
+4) Cross
+
+Structuring Element
+
+5) Rectangle
+
+Structuring Element
+
+6) Irregular
+
+Morphological Operation
+
+Dilation and Erosion
+
+erosion
+and
+Dilation
+morphological operations.
+
+are
+
+two
+
+fundamental
+
+Dilation adds pixels to the boundaries of objects in
+an image, while
+Erosion removes pixels on object boundaries.
+
+The number of pixels added or removed from the
+objects in an image depends on the size and shape of
+the structuring element used to process the image.
+
+Morphological Operation
+
+Characteristics of Erosion
+
+Erosion generally decreases the sizes of objects and
+removes small anomalies by subtracting objects with
+a radius smaller than the structuring element.
+
+images,
+
+erosion reduces
+
+With grayscale
+the
+brightness (and therefore the size) of bright objects
+on a dark background by taking the neighborhood
+minimum when passing the structuring element over
+the image.
+
+Morphological Operation
+
+Characteristics of Erosion
+
+With binary images, erosion completely removes
+objects smaller than the structuring element and
+removes perimeter pixels from larger image objects
+(the continuous line forming the boundary of a closed
+geometrical figure.)
+
+Morphological Operation
+
+Characteristics of Dilation
+
+Dilation generally increases the sizes of objects,
+filling in holes and broken areas, and connecting
+areas that are separated by spaces smaller than the
+size of the structuring element.
+
+Morphological Operation
+
+Characteristics of Dilation
+
+With grayscale images, dilation increases
+the
+brightness of objects by taking the neighborhood
+maximum when passing the structuring element over
+the image.
+
+With binary images, dilation connects areas that are
+separated by spaces smaller than the structuring
+element and adds pixels to the perimeter of each
+image object.
+
+Erosion
+
+The erosion of a binary image f by a structuring
+element s (denoted f Ɵ s) produces a new binary
+image g = f Ɵ s with ones in all locations (x,y) of a
+structuring element's origin at which that structuring
+element s fits the input image f,
+
+i.e. g(x,y) = 1 if s fits f
+
+and
+
+0 otherwise,
+
+repeating for all pixel coordinates (x,y).
+
+Erosion
+
+Erosion
+
+(e.g. 2×2 - 5×5)
+
+Erosion with small
+square
+structuring elements shrinks an image by stripping
+away a layer of pixels from both the inner and outer
+boundaries of regions.
+
+The holes and gaps between different
+become larger, and small details are eliminated.
+
+regions
+
+Erosion
+
+The value of the output pixel is the minimum value 
+of all the pixels in the input pixel's neighborhood. 
+
+In a binary image, if any of the pixels is set to 0,
+the output pixel is set to 0.
+
+Erosion
+
+Morphological Erosion of a Binary Image
+
+Rules to follow:
+
+1) Fully match  1
+2) Some match  0
+3) No match  0
+
+Let’s solve this for Erosion using 3 x 3 square Structuring element
+
+1
+1
+1
+
+1
+1
+1
+
+1
+1
+1
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+Red 0’s are used as zero padding
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+Red 0’s are used as zero padding
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+Red 0’s are used as zero padding
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+Red 0’s are used as zero padding
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+Red 0’s are used as zero padding
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+Red 0’s are used as zero padding
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+Red 0’s are used as zero padding
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+Red 0’s are used as zero padding
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+Red 0’s are used as zero padding
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+Red 0’s are used as zero padding
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+Red 0’s are used as zero padding
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+Red 0’s are used as zero padding
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+Red 0’s are used as zero padding
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+Red 0’s are used as zero padding
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+Red 0’s are used as zero padding
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+Red 0’s are used as zero padding
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+Red 0’s are used as zero padding
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+Erosion
+
+Let’s check the result
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+Erosion
+
+Try this example and solve if you can
+
+0
+0
+0
+0
+0
+
+0
+0
+1
+0
+0
+
+0
+1
+1
+1
+0
+
+0
+1
+1
+1
+0
+
+0
+0
+1
+0
+0
+
+0
+0
+0
+0
+0
+
+Test Image
+
+1
+1
+1
+
+Structuring Element
+
+Erosion
+
+Erosion
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+Erosion
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+Erosion
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+Erosion
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+Erosion
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+Erosion
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+Erosion
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+Erosion
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+Erosion
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+Erosion
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+Erosion
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+Erosion
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+Erosion
+
+Simple and easy way to solve
+
+Rules:
+1) Use zero ( 0 ) padding for each side.
+2) Place the Structuring element and get the result straightway
+Using the neighbors and erosion rule.
+3) Make sure you only update values for origin only.
+
+1
+1
+1
+
+0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0
+
+0 0 0 1 1 0 0 0
+
+0 0 1 1 1 1 0 0
+
+0 0 0 1 1 0 0 0
+
+0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+Red 0’s are used as zero padding
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0 0
+0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0 0
+0 0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 1 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+Red 0’s are used as zero padding
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0 0
+0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0 0
+0 0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0 0
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 1 1 1 1 1 1 1 1 0 0 0 0 0
+0 0 0 0 0 0 1 1 1 1 1 1 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+Erosion
+
+1)
+2)
+3)
+4)
+5)
+6)
+7)
+8)
+9)
+10)
+
+clc,
+close all;
+clear all;
+I = imread('D:\matlab_folder\week_9.png');
+figure, imshow(I);
+SE = strel('square',5);
+J = imerode(I,SE);
+figure, imshow(J);
+
+Erosion
+
+Erosion
+
+Just change line number 7 for the previous slide and play with 
+different shapes of structuring element
+
+-> SE = strel(‘diamond’,5);
+OR -> SE = strel(‘disk’,5);
+OR -> SE = strel(‘octagon’,5);
+OR -> SE = strel(‘line’,len,deg); %len =lenth , deg = degree
+OR -> SE = strel(‘rectangle’,[m n]);
+OR -> SE = strel(‘cube’,5);
+OR -> SE = strel('square',5);
+
+Erosion
+
+Larger structuring elements have a more pronounced
+effect, the result of erosion with a large structuring
+element being similar
+to the result obtained by
+iterated erosion using a smaller structuring element of
+the same shape.
+
+If s1 and s2 are a pair of structuring elements identical
+in shape, with s2 twice the size of s1,
+
+then
+f Ɵ s2 ≈ (f Ɵ  s1) Ɵ  s1.
+
+Erosion
+
+clc,
+%close all;
+clear all;
+I = imread('D:\matlab_folder\2.jpg');
+figure, imshow(I);
+SE = strel('rectangle',[4 8]);
+J = imerode(I,SE);
+%J = imerode(J,SE);
+figure, imshow(J);
+
+Erosion
+
+Erosion
+
+clc,
+%close all;
+clear all;
+I = imread('D:\matlab_folder\2.jpg');
+figure, imshow(I);
+SE = strel('rectangle',[4 4]);
+J = imerode(I,SE);
+J = imerode(J,SE);
+figure, imshow(J);
+
+Erosion
+
+Erosion
+
+Erosion removes small-scale details from a binary
+image but simultaneously reduces the size of regions
+of interest, too.
+
+By subtracting the eroded image from the original
+image, boundaries of each region can be found:
+
+b = f − (f Ɵ  s )
+
+where f
+is an image of the regions, s is a 3×3
+structuring element, and b is an image of the region
+boundaries.
+
+Erosion
+
+clc,
+%close all;
+clear all;
+I = imread('D:\matlab_folder\2.jpg');
+figure, imshow(I);
+SE = strel('rectangle',[4 4]);
+J = imerode(I,SE);
+figure, imshow(J);
+K = I - J;
+figure, imshow(K);
+
+Erosion
+
+Dilation
+
+The dilation of an image f by a structuring
+s) produces a new binary
+element s (denoted f
+image g = f
+s with ones in all locations (x,y) of a
+structuring element's origin at which that structuring
+element s hits the input image f,
+i.e. g(x,y) = 1 if s hits f
+and
+
+0 otherwise,
+
+repeating for all pixel
+
+coordinates (x,y).
+
+Dilation has the opposite effect to erosion as it adds a
+layer of pixels to both the inner and outer boundaries
+of regions.
+
+Dilation
+
+Dilation
+
+The value of the output pixel is the maximum value
+of all the pixels in the input pixel's neighborhood. In
+a binary image, if any of the pixels is set to the
+value 1, the output pixel is set to 1.
+
+Dilation
+
+The holes enclosed by a single region and gaps
+between different regions become smaller, and small
+intrusions into boundaries of a region are filled in:
+
+Dilation and Erosion relation
+
+Results of dilation or erosion are influenced both by
+the size and shape of a structuring element. Dilation
+and erosion are dual operations in that they have
+opposite effects. Let f c denote the complement of an
+image f, i.e., the image produced by replacing 1 with
+0 and vice versa. Formally, the duality is written as
+
+f
+
+s  = f c Ɵ srot
+
+Dilation and Erosion relation
+
+where srot is the structuring element s rotated by 180.
+If a structuring element is symmetrical with respect
+to rotation, then srot does not differ from s.
+If a binary image is considered to be a collection of
+connected regions of pixels set to 1 on a background
+of pixels set to 0, then erosion is the fitting of a
+structuring element to these regions and dilation is
+(rotated if
+the fitting of a structuring element
+necessary)
+by
+the
+inversion of the result.
+
+background,
+
+followed
+
+into
+
+Dilation and Erosion relation
+
+clc,
+%close all;
+clear all;
+I = imread('D:\matlab_folder\2.jpg');
+figure, imshow(I);
+SE = strel('square',7);
+J = imdilate(I,SE);
+figure, imshow(J);
+
+Dilation and Erosion relation
+
+Dilation and Erosion relation
+
+clc,
+%close all;
+clear all;
+I = imread('D:\matlab_folder\2.jpg');
+I1 = imcomplement(I);
+figure, imshow(I);
+SE = strel('square',7);
+J = imerode(I1,SE);
+J = imcomplement(J);
+figure, imshow(J);
+
+Dilation and Erosion relation
+
+Dilation
+
+Morphological Dilation of a Binary Image
+
+1) Fully match  1
+2) Some match  1
+3) No match  0
+
+Let’s try this with 3 x 3 matrix for Dilation
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+1 1 1
+1 1 1
+1 1 1
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0
+0 1 1 1 1 1 1 1 0 0 1 1 1 1 0 0
+0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0
+0 1 1 1 1 1 1 1 0 0 1 1 1 1 0 0
+0 1 1 1 1 1 1 1 0 1 1 1 1 1 1 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0
+0 1 1 1 1 1 1 1 0 0 1 1 1 1 0 0
+0 1 1 1 1 1 1 1 0 1 1 1 1 1 1 0
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0
+0 1 1 1 1 1 1 1 0 0 1 1 1 1 0 0
+0 1 1 1 1 1 1 1 0 1 1 1 1 1 1 0
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+
+1 1 1
+1 1 1
+1 1 1
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0
+0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 0
+0 1 1 1 1 1 1 1 0 1 1 1 1 1 1 0
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0
+0 0 1 1 1 1 0 1 1 1 1 1 1 1 1 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0
+0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0
+0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0
+0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 0
+0 1 1 1 1 1 1 1 0 1 1 1 1 1 1 0
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0
+0 0 1 1 1 1 0 1 1 1 1 1 1 1 1 0
+
+Dilation
+
+1
+1
+1
+
+Try this and check your result
+
+0
+0
+0
+0
+0
+
+0
+0
+1
+0
+0
+
+0
+1
+1
+1
+0
+
+0
+1
+1
+1
+0
+
+0
+0
+1
+0
+0
+
+0
+0
+0
+0
+0
+
+Dilation
+
+Dilation
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+Dilation
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+Dilation
+
+0
+
+1
+
+1
+
+1
+
+0
+
+1
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+Dilation
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+1
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+1
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+Dilation
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+1
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+1
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+Dilation
+
+0
+
+1
+
+1
+
+1
+
+0
+
+1
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+1
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+Dilation
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+1
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+1
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+Dilation
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+1
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+1
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+Dilation
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+1
+
+1
+
+1
+
+1
+
+1
+
+0
+
+1
+
+1
+
+1
+
+0
+
+1
+
+1
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+Dilation
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+1
+
+0
+
+1
+
+1
+
+1
+
+0
+
+1
+
+1
+
+1
+
+1
+
+1
+
+0
+
+1
+
+1
+
+1
+
+0
+
+1
+
+1
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+Dilation
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+1
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+Simple and easy way to solve
+
+Dilation
+
+Rules:
+1) Use zero ( 0 ) padding for each side.
+2) Place the Structuring element and get the result straightway
+Using the neighbors and dilation rule.
+3) Make sure you only update values for origin only.
+
+1
+1
+1
+
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 1 1 0 0 0
+0 0 1 1 1 1 0 0
+0 0 0 1 1 0 0 0
+0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+1
+
+1
+
+1
+
+0
+
+0
+
+0
+
+1
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+
+0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0
+
+0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 0
+
+0 1 1 1 1 1 1 1 0 1 1 1 1 1 1 0
+
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0
+
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0
+
+0 0 1 1 1 1 0 1 1 1 1 1 1 1 1 0
+
+1 1 1
+1 1 1
+1 1 1
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0 0
+
+0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0 0
+
+0 0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0 0
+
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+
+0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0
+
+0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 0
+
+0 1 1 1 1 1 1 1 0 1 1 1 1 1 1 0
+
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0
+
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0
+
+0 0 1 1 1 1 0 1 1 1 1 1 1 1 1 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0
+0 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0
+0 1 1 1 1 1 1 1 0 0 1 1 1 1 1 0
+0 1 1 1 1 1 1 1 0 1 1 1 1 1 1 0
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0
+0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0
+0 0 1 1 1 1 0 1 1 1 1 1 1 1 1 0
+
+1 1 1
+1 1 1
+1 1 1
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 0 1 1 1 0 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0
+
+0 0 0 1 1 1 1 1 0 0 0 0 1 1 1 0 0 0
+
+0 0 0 1 1 1 1 0 0 0 0 1 1 1 1 0 0 0
+
+0 0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 0 0
+
+0 0 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0 0
+
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+Morphological Opening
+
+The opening of an image f
+element s (denoted by f
+a dilation:
+
+by a structuring
+s) is an erosion followed by
+
+f
+
+s = ( f
+
+s)
+
+s
+
+Morphological Opening
+
+Opening is so called because it can open up a gap between
+objects connected by a thin bridge of pixels. Any regions that
+have survived the erosion are restored to their original size by
+the dilation:
+
+Morphological Opening
+
+Opening is an idempotent operation: once an image has been
+opened, subsequent openings with the same structuring
+element have no further effect on that image:
+
+Morphological Opening
+
+clc,
+%close all;
+clear all;
+I = imread('D:\matlab_folder\2.jpg');
+figure, imshow(I);
+SE = strel('square',5);
+J = imopen(I,SE);
+figure, imshow(J);
+
+Morphological Opening
+
+Morphological Opening
+
+clc,
+%close all;
+clear all;
+I = imread('D:\matlab_folder\2.jpg');
+figure, imshow(I);
+SE = strel('square',5);
+J = imerode(I,SE);
+J = imdilate(J,SE);
+figure, imshow(J);
+
+Morphological Opening
+
+Morphological Closing
+
+The closing of an image f by a structuring element s (denoted
+by f • s) is a dilation followed by an erosion:
+
+f • s = ( f
+
+srot)
+
+srot
+
+Morphological Closing
+
+clc,
+%close all;
+clear all;
+I = imread('D:\matlab_folder\2.jpg');
+figure, imshow(I);
+SE = strel('square',5);
+J = imclose(I,SE);
+figure, imshow(J);
+
+Morphological Closing
+
+Morphological Closing
+
+clc,
+%close all;
+clear all;
+I = imread('D:\matlab_folder\2.jpg');
+figure, imshow(I);
+SE = strel('square',11);
+J= imdilate(I,SE);
+J = imerode(J,SE);
+figure, imshow(J);
+
+Morphological Closing
+
+Morphological Filtering
+
+There can be two types of morphological filtering
+possible which are:
+
+1) Top-hat filtering
+
+2) Bottom-hat filtering
+
+Morphological Filtering
+
+Top-hat filtering:
+
+Morphological top-hat filtering performs on the grayscale or
+binary image and returns a filtered image. Top-hat filtering
+computes the morphological opening of the image and then
+subtracts the result from the original image.
+
+Morphological Filtering
+
+clc,
+close all;
+clear all;
+I = imread('D:\matlab_folder\Dip1.png');
+figure, imshow(I);
+SE = strel('square',11);
+J = imtophat(I,SE);
+figure, imshow(J);
+
+Morphological Filtering
+
+Morphological Filtering
+
+Bottom-hat filtering:
+
+filtering
+
+bottom-hat
+
+the
+morphological
+grayscale or binary image and returns a filtered image,
+Bottom-hat filtering computes the morphological closing of
+the image and then subtracts the original image from the
+result.
+
+performs
+
+on
+
+Morphological Filtering
+
+clc,
+close all;
+clear all;
+I = imread('D:\matlab_folder\Dip1.png');
+figure, imshow(I);
+SE = strel('square',5);
+J = imbothat(I,SE);
+figure, imshow(J);
+
+Morphological Filtering
+
+Thanks !!!
+
+Region Growing and Region Splitting
+
+Region Growing and Region Splitting
+
+Region Growing and Region Splitting
+
+Region Growing and Region Splitting
+
+Region Growing and Region Splitting
+
+Region Merging/Growing
+
+Region Growing
+
+Region Growing
+
+Region Growing
+
+Region Growing
+
+Region Growing
+
+Region Growing
+
+Region Growing
+
+Region Growing
+
+Region Growing
+
+Region Growing
+
+Region Growing
+
+Region Splitting
+
+Region Splitting
+
+Region Splitting
+
+Region Splitting
+
+Region Splitting
+
+Region Splitting
+
+Region Splitting
+
+Region splitting and Merging
+
+Region splitting and Merging
+
+Region splitting and Merging
+
+Region splitting and Merging
+
+Region splitting and Merging
+
+Region splitting and Merging
+
+Region splitting and Merging
+
+Region splitting and Merging
+
+Region splitting and Merging
+
+Region splitting and Merging
+
+Region splitting and Merging
+
+Thank you
+
+Chapter 10
+
+Segmentation
+
+1
+
+Remember?
+
+2
+
+Segmentation !!!
+
+3
+
+Segmentation
+
+Aim:
+
+to partition an image into a collection of set of pixels
+
+ Meaningful regions (coherent
+
+objects)
+
+ Linear structures (line,
+
+curve, …)
+
+ Shapes (circles, ellipses,
+
+…)
+
+Segmentation
+
+Basics of Image Segmentation
+
+Definition: Image segmentation partitions an image into
+
+regions
+
+called segments.
+
+Image
+pixels
+intensity,
+
+segmentation
+by
+
+creates
+
+segments
+some
+
+similarity
+
+of
+
+connected
+criteria:
+
+texture, histogram,
+
+features, …
+
+analyzing
+color,
+
+Basics of Image Segmentation
+
+ Segmentation partitions an image into distinct
+
+regions containing each pixels with similar
+
+attributes.
+
+ To be meaningful and useful for image analysis
+
+and interpretation,
+
+the regions should strongly
+
+relate to depicted objects or features of interest.
+
+Basics of Image Segmentation
+
+ Meaningful segmentation is the first step from
+
+low-level
+
+image
+
+processing
+
+transforming
+
+a
+
+greyscale or color image into one or more other
+
+images to high-level image description in terms of
+
+features, objects, and scenes. The success of
+
+image
+
+analysis
+
+depends
+
+on
+
+reliability
+
+of
+
+segmentation, but an accurate partitioning of an
+
+image is generally a very challenging problem
+
+Image
+
+Binarization
+
+• Image binarization applies often just one global threshold 
+T for mapping a scalar image I into a binary image.
+
+Image
+
+Binarization
+
+Image binarization applies often just
+threshold T for
+a binary
+
+mapping
+
+image.
+
+one global 
+
+a scalar image I into 
+
+• The global threshold can
+optimization strategy aiming at creating “large” 
+connected regions and at reducing
+small-sized regions, called artifacts
+
+be identified by an 
+
+the number of 
+
+Thresholding
+
+Thresholding:
+
+method for
+based on
+intensity
+
+frequently
+
+employed
+is
+of
+
+threshold
+analysis
+
+Most
+determining
+histogram
+levels
+
+Thresholding
+
+Thresholding
+
+Thresholding
+
+Thresholding
+
+OTSU
+
+Definition: The
+
+grey-value
+
+the
+at
+the
+
+method uses
+of
+aims
+in
+between
+
+the
+given image I
+providing
+sense that
+two
+background
+by
+
+classes,
+pixels, is
+
+finding the
+
+the
+the
+
+best
+
+object and
+(i.e.,
+
+histogram
+input
+and
+threshold
+“overlap”
+of
+minimized
+balance).
+
+as
+best
+
+set
+
+OTSU
+
+Thanks !!!
+
+Spatial Filters
+
+Sharpening Spatial Filters
+
+The principal objective of sharpening is to highlight transitions of intensity.
+
+Transition intensity: to change (intensity) from an origin state to a destination state at time t.
+
+Applications of image sharpening include electronic printing, medical imaging, industrial 
+inspection and autonomous guidance in military systems.
+
+• Blurring – Pixel averaging
+• Sharpening – spatial differentiation
+
+The strength of the response of a derivational operator is proportional to the degree of intensity 
+discontinuity of the image at the point at which the operator is applied.
+
+Therefore, image differentiation enhances edges and other discontinuities (such as noise) and 
+deemphasizes area which have slowly varying intensities.
+
+Sharpening Spatial Filters
+
+Left – original Image
+Right – Blurred Image
+There will be a mask which will slide the original image and will result the blurred image (average value 
+will be placed in the center pixel to obtain the result )
+
+Sharpening Spatial Filters
+
+Left – original Image
+Right – Blurred Image
+There will be a mask which will slide the original image and will result the blurred image (average value 
+will be placed in the center pixel to obtain the result )
+After 4 iterations of 21 x 21 box filter the result will be right one
+
+Foundation of sharpening filters
+
+1) First-order derivatives of a one-dimensional function 
+
+f(x):
+
+𝜕𝑓
+𝜕𝑥
+
+= 𝑓 𝑥 + 1 − 𝑓 𝑥
+
+2) Second-order derivative of a one-dimensional function
+
+f(x):
+
+𝜕2𝑓
+𝜕𝑥2 = 𝑓 𝑥 + 1 + 𝑓 𝑥 − 1 − 2𝑓(𝑥)
+
+Laplacian Filter
+
+•
+•
+
+It highlights gray-level discontinuities in an image
+It deemphasizes regions with slowing varying gray levels
+
+Formula:
+
+f(x):
+
+𝛻2𝑓 =
+
+𝜕2𝑓
+𝜕𝑥2 +
+
+𝜕2𝑓
+𝜕𝑦2
+
+Where,
+
+𝜕2𝑓
+𝜕𝑥2 = 𝑓 𝑥 + 1, 𝑦 + 𝑓 𝑥 − 1, 𝑦 − 2𝑓(𝑥, 𝑦)
+𝜕2𝑓
+𝜕𝑦2 = 𝑓 𝑥, 𝑦 + 1 + 𝑓 𝑥, 𝑦 − 1 − 2𝑓(𝑥, 𝑦)
+
+Previously we had 1 dimensional now we will consider 2 dimensional
+
+Laplacian Filter
+
+𝛻2𝑓 =
+
+𝜕2𝑓
+𝜕𝑥2 +
+
+𝜕2𝑓
+𝜕𝑦2
+
+= [𝑓 𝑥 + 1, 𝑦 + 𝑓 𝑥 − 1, 𝑦 − 2𝑓(𝑥, 𝑦)] + 
+[𝑓 𝑥, 𝑦 + 1 + 𝑓 𝑥, 𝑦 − 1 − 2𝑓(𝑥, 𝑦)]
+
+= 𝑓 𝑥 + 1, 𝑦 + 𝑓 𝑥 − 1, 𝑦 + 𝑓 𝑥, 𝑦 + 1 + 𝑓 𝑥, 𝑦 − 1 - 4𝑓(𝑥, 𝑦)
+
+Laplacian Filter
+
+0
+
+1
+
+0
+
+0
+
+-1
+
+0
+
+1
+
+-4
+
+1
+
+-1
+
+4
+
+-1
+
+0
+
+1
+
+0
+
+0
+
+-1
+
+0
+
+1
+
+1
+
+1
+
+-1
+
+-1
+
+-1
+
+1
+
+-8
+
+1
+
+-1
+
+8
+
+-1
+
+1
+
+1
+
+1
+
+-1
+
+-1
+
+-1
+
+f(x-1,y-1)
+
+f(x,y-1)
+
+f(x+1,y-1)
+
+f(x-1,y)
+
+f(x,y)
+
+f(x+1,y)
+
+f(x-1,y+1)
+
+f(x,y+1)
+
+f(x+1,y+1)
+
+Laplacian Filter
+
+8
+
+0
+
+1
+
+5
+
+6
+
+3
+
+4
+
+2
+
+7
+
+Input Image
+
+0
+
+1
+
+0
+
+1
+
+-4
+
+1
+
+Mask
+
+0
+
+1
+
+0
+
+= (8x0) + (5x1) + (4x0) + (0x1) + (6x-4) + (2x1) + (1x0) + (3x1) + (7x0)
+= 0 + 5 + 0 + 0 -24 + 2 + 0 + 3 + 0
+= - 14
+
+Enhanced Laplacian Filter
+
+Rule: will increase 1 in the center point (e.g.; if -4 then it will be -5, if +4 then it will be +5 )
+
+Enhanced Laplacian Filter
+
+Enhanced Laplacian Filter
+
+Enhanced Laplacian Filter
+
+Enhanced Laplacian Filter
+
+Enhanced Laplacian Filter
+
+Enhanced Laplacian Filter
+
+Enhanced Laplacian Filter
+
+Smoothing Spatial Filter
+
+Smoothing Spatial Filter
+
+Smoothing Spatial Filter
+
+Smoothing Spatial Filter
+
+Smoothing Spatial Filter
+
+Smoothing Spatial Filter
+
+Smoothing Spatial Filter
+
+Smoothing Spatial Filter
+
+Smoothing Spatial Filter
+
+Smoothing Spatial Filter
+
+Smoothing Spatial Filter
+
+Smoothing Spatial Filter
+
+Mainly used for edge detection
+
+Smoothing Spatial Filter
+
+Smoothing Spatial Filter
+
+Smoothing Spatial Filter
+
+Smoothing Spatial Filter
+
+Smoothing Spatial Filter
+
+Smoothing Spatial Filter
+
+Thanks !!!
+
+
